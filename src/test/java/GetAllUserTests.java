@@ -1,4 +1,3 @@
-import io.restassured.http.ContentType;
 import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
 
@@ -8,13 +7,13 @@ public class GetAllUserTests {
     @Test
     public void shouldGetAllUsers(){
         //1.Arrange
-        //2.Act
-        //3.Assert
 
         given()
                 .when()
+                //2.Act
                 .get("https://gorest.co.in/public/v1/users")
                 .then()
+                //3.Assert
                 .statusCode(200)
                 .log().body()
                 .body("data",Matchers.hasSize(20))
