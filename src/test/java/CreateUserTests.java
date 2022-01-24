@@ -18,11 +18,7 @@ public class CreateUserTests {
     public void shouldCreateMaleUser(){
         //1.Arrange
         String email = String.format("%s@gmail.com",UUID.randomUUID());
-        String name = "Rocky";
-        String gender = "male";
-        String status = "active";
-        CreateUserRequestBody requestBody = new CreateUserRequestBody(name,email,gender,status);
-
+        CreateUserRequestBody requestBody = CreateUserRequestBody.builder().name("Rocky").email(email).gender("male").status("active").build();
         //2.Act
         usersClient.createUser(requestBody)
                 .then()
@@ -39,11 +35,7 @@ public class CreateUserTests {
     public void shouldCreateFemaleUser(){
         //1.Arrange
         String email = String.format("%s@gmail.com",UUID.randomUUID());
-        String name = "Pooja";
-        String gender = "female";
-        String status = "active";
-        CreateUserRequestBody requestBody = new CreateUserRequestBody(name,email,gender,status);
-
+        CreateUserRequestBody requestBody = CreateUserRequestBody.builder().name("Pooja").email(email).gender("female").status("active").build();
         //2.Act
         usersClient.createUser(requestBody)
                 .then()
