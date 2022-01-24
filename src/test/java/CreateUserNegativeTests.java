@@ -19,10 +19,9 @@ public class CreateUserNegativeTests {
         //CreateUserRequestBody requestBody = new CreateUserRequestBody(name,email,gender,status);
         CreateUserRequestBody requestBody = CreateUserRequestBody.builder().name("rocky").email("rockygmail.com").gender("male").status("active").build();
         //2.Act
-        usersClient.createUser(requestBody)
-                .then()
-                .log().body()
+        usersClient.create(requestBody)
                 //3.Assert
+                .then()
                 .statusCode(422)
                 .body("data", Matchers.hasItem(Matchers.hasEntry("field","email")))
                 .body("data",Matchers.hasItem(Matchers.hasEntry("message","is invalid")));
